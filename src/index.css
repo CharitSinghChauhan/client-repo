@@ -1,0 +1,638 @@
+@import "tailwindcss";
+
+/* Global Styles */
+body {
+  @apply bg-slate-950 text-white;
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+:root {
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Mobile-first approach */
+html {
+  font-size: 14px;
+  scroll-behavior: smooth;
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Responsive container for small screens */
+.container-mobile {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 640px) {
+  .container-mobile {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-mobile {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Enhanced tap targets for mobile */
+button, 
+a, 
+[role="button"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Futuristic accent bar */
+.accent-bar {
+  height: 4px;
+  background: linear-gradient(to right, #0f4c81, #2563eb, #0284c7);
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+}
+
+/* Tech-inspired section dividers */
+.section-divider {
+  @apply h-px bg-slate-800 my-8 sm:my-12 md:my-16 relative overflow-hidden;
+}
+
+.section-divider::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.6), transparent);
+  animation: dividerScan 3s ease-in-out infinite;
+}
+
+@keyframes dividerScan {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Futuristic card design */
+.tech-card {
+  @apply bg-slate-900/50 backdrop-blur-md border border-slate-800/50 rounded-lg;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(37, 99, 235, 0.3);
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+/* Neon button styles */
+.btn-neon-primary {
+  @apply relative overflow-hidden px-6 py-3 rounded-md font-medium transition-all duration-300;
+  background: linear-gradient(to right, #0f4c81, #2563eb);
+  color: white;
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+}
+
+.btn-neon-primary:hover {
+  box-shadow: 0 0 25px rgba(37, 99, 235, 0.6);
+}
+
+.btn-neon-primary::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: rotate(30deg);
+  animation: neonSweep 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes neonSweep {
+  0% { transform: rotate(30deg) translateX(-100%); }
+  100% { transform: rotate(30deg) translateX(100%); }
+}
+
+.btn-neon-secondary {
+  @apply relative border-2 border-blue-500 text-blue-400 px-6 py-3 rounded-md font-medium transition-all duration-300;
+  background: rgba(37, 99, 235, 0.05);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.2);
+}
+
+.btn-neon-secondary:hover {
+  background: rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+}
+
+.btn-neon-dark {
+  @apply bg-slate-900 hover:bg-slate-800 text-white transition-all duration-300 rounded-md px-6 py-3 font-medium;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.btn-neon-outline {
+  @apply border-2 border-white/30 text-white hover:bg-white/10 transition-all duration-300 rounded-md px-6 py-3 font-medium backdrop-blur-sm;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.btn-neon-outline:hover {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Futuristic gradient backgrounds */
+.bg-cyber-gradient {
+  background: linear-gradient(135deg, #00204a, #005792);
+}
+
+.bg-tech-gradient {
+  background: linear-gradient(135deg, #002244, #0369a1);
+}
+
+.bg-future-gradient {
+  background: linear-gradient(135deg, #051937, #004d7a);
+}
+
+.bg-neon-gradient {
+  background: linear-gradient(135deg, #001e2b, #0284c7);
+}
+
+/* Digital noise texture */
+.digital-noise {
+  position: relative;
+}
+
+.digital-noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.05;
+  z-index: 10;
+  mix-blend-mode: overlay;
+}
+
+/* Advanced animation for elements */
+@keyframes fadeInBlur {
+  from {
+    opacity: 0;
+    filter: blur(20px);
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-in-blur {
+  animation: fadeInBlur 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Delay classes for animations */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Futuristic divider lines */
+.divider-neon {
+  @apply h-px relative overflow-hidden;
+  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.5), transparent);
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
+}
+
+.divider-vertical-neon {
+  @apply w-px h-full relative overflow-hidden mx-6;
+  background: linear-gradient(180deg, transparent, rgba(37, 99, 235, 0.5), transparent);
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
+}
+
+/* Tech card styling */
+.insight-card {
+  @apply overflow-hidden rounded-lg bg-slate-900/80 backdrop-blur-sm border border-slate-800/50;
+  transition: all 0.5s ease;
+}
+
+.insight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(37, 99, 235, 0.2);
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+.insight-card img {
+  transition: transform 0.8s ease;
+}
+
+.insight-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Futuristic list style */
+.tech-list {
+  list-style: none;
+  padding-left: 1.5rem;
+}
+
+.tech-list li {
+  position: relative;
+  margin-bottom: 0.75rem;
+  padding-left: 0.5rem;
+}
+
+.tech-list li::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem;
+  top: 0.6rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 1px;
+  background-color: #8B5CF6;
+  box-shadow: 0 0 8px #8B5CF6;
+  transform: rotate(45deg);
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  h1 {
+    @apply text-2xl sm:text-3xl;
+  }
+  h2 {
+    @apply text-xl sm:text-2xl;
+  }
+  h3 {
+    @apply text-lg sm:text-xl;
+  }
+  p {
+    @apply text-sm sm:text-base;
+  }
+  .tech-list li {
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+  }
+  .stat-highlight {
+    @apply text-3xl sm:text-4xl md:text-5xl;
+  }
+  .tech-quote {
+    @apply text-xl;
+    padding: 1rem;
+  }
+}
+
+/* Smaller padding for mobile */
+@media (max-width: 640px) {
+  .py-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  .px-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .mobile-stack {
+    flex-direction: column;
+  }
+  .mobile-full-width {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .mobile-center {
+    text-align: center;
+    justify-content: center;
+  }
+  .mobile-hidden {
+    display: none;
+  }
+  .mobile-only {
+    display: block;
+  }
+}
+
+/* Tablet-specific adjustments */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .tablet-stack {
+    flex-direction: column;
+  }
+  .tablet-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Improved tap targets and focus styles for accessibility */
+a:focus, button:focus, input:focus, textarea:focus, select:focus, [tabindex]:focus {
+  outline: 2px solid #8B5CF6;
+  outline-offset: 2px;
+}
+
+@media (hover: none) {
+  .hover-only {
+    display: none;
+  }
+}
+
+/* Statistics highlights with neon effect */
+.stat-highlight {
+  @apply text-4xl md:text-5xl font-bold mb-2;
+  background: linear-gradient(to right, #8B5CF6, #3B82F6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+}
+
+/* Futuristic scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #8B5CF6, #3B82F6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #7c3aed, #2563eb);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(139, 92, 246, 0.7);
+  color: white;
+}
+
+/* Tech image treatment */
+.img-tech {
+  @apply rounded-md overflow-hidden relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.img-tech::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: inset 0 0 20px rgba(139, 92, 246, 0.1);
+  pointer-events: none;
+}
+
+/* Footer styling */
+.footer-link {
+  @apply text-slate-400 hover:text-violet-400 transition-colors;
+  text-shadow: 0 0 5px rgba(139, 92, 246, 0);
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  text-shadow: 0 0 5px rgba(139, 92, 246, 0.5);
+}
+
+/* Futuristic slide-in animations */
+@keyframes slideInUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.slide-in-up {
+  animation: slideInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Neon social media icons */
+.social-icon {
+  @apply text-slate-400 hover:text-violet-400 transition-all duration-300 w-10 h-10 flex items-center justify-center rounded-full bg-slate-800/50 border border-slate-700/50;
+}
+
+.social-icon:hover {
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+  border-color: rgba(139, 92, 246, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Animated neon accent line */
+.neon-line {
+  position: relative;
+  @apply h-0.5 bg-violet-600;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+.neon-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 30%;
+  background: linear-gradient(to right, transparent, #8B5CF6);
+  filter: blur(3px);
+  animation: neonPulse 3s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+/* Grid background */
+.grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Glass morphism */
+.glass-panel {
+  @apply bg-slate-800/40 backdrop-blur-md border border-slate-700/50 rounded-lg;
+}
+
+/* Cyberspace scan line */
+.scan-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.8), transparent);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
+  animation: scanLine 2s linear infinite;
+  z-index: 10;
+}
+
+@keyframes scanLine {
+  0% { top: -2px; }
+  100% { top: 100%; }
+}
+
+/* Terminal blinking cursor */
+.terminal-cursor::after {
+  content: '|';
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Fallback stars background for browsers without WebGL */
+.stars-fallback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  overflow: hidden;
+}
+
+.stars-fallback:before, 
+.stars-fallback:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,0.2) 2px, transparent 2px),
+    radial-gradient(white, rgba(255,255,255,0.15) 1px, transparent 1px),
+    radial-gradient(white, rgba(255,255,255,0.1) 2px, transparent 2px);
+  background-size: 550px 550px, 350px 350px, 250px 250px;
+  background-position: 0 0, 30px 60px, 130px 270px;
+  animation: starsAnimation 300s linear infinite;
+}
+
+.stars-fallback:after {
+  background-size: 450px 450px, 300px 300px, 200px 200px;
+  background-position: 80px 40px, 60px 120px, 40px 60px;
+  animation-delay: -150s;
+  opacity: 0.6;
+}
+
+@keyframes starsAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+/* Geometric background fallback for browsers without WebGL */
+.geometric-fallback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #000510 0%, #00082b 100%);
+  overflow: hidden;
+}
+
+.geometric-fallback:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(transparent 7px, rgba(255, 255, 255, 0.05) 1px),
+    linear-gradient(90deg, transparent 7px, rgba(255, 255, 255, 0.05) 1px);
+  background-size: 8px 8px;
+}
+
+.geometric-fallback:after {
+  content: "";
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  top: -100%;
+  left: -100%;
+  background-image: 
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 12%),
+    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.08) 0%, transparent 20%),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.06) 0%, transparent 15%);
+  animation: slowRotate 60s linear infinite;
+}
+
+@keyframes slowRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Remove focus outline for all interactive elements */
+a, button, [role="button"], 
+input[type="button"], 
+input[type="submit"], 
+input[type="reset"] {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Override Tailwind's focus ring utilities for all elements */
+*, *:focus, *:hover, *:active {
+  outline: none !important;
+}
+
+/* Remove :focus-visible outline as well */
+:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}

@@ -1,0 +1,6 @@
+# Robots.txt file for Infoxify website
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://infoxify.com/sitemap.xml 
